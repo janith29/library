@@ -25,7 +25,7 @@ class PatientController extends Controller
     public function index()
     {
         $patients = patient::all();
-        return view('admin.patients.index', compact('patients'));    }
+        return view('admin.member.index', compact('patients'));    }
     public function re()
     {
         $data = DB::table('patient')
