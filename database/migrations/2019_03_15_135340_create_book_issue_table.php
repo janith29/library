@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalaryPaymentTable extends Migration
+class CreateBookIssueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateSalaryPaymentTable extends Migration
      */
     public function up()
     {
-        Schema::create('salarypay', function (Blueprint $table) {
+        Schema::create('book_issue', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('emp_id');
-            $table->integer('amount');
-            $table->DATE('date');
+            $table->string('book_id');
+            $table->integer('member_id');
+            $table->string('getdate');
+            $table->integer('book_issued_day');
+            $table->integer('book_returned_day')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateSalaryPaymentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salarypay');
+        Schema::dropIfExists('book_issue');
     }
 }

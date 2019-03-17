@@ -5,29 +5,24 @@
     <!-- top tiles -->
     <div class="row tile_count">
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-users"></i>Total Patients</span>
-            <div class="count green">{{ $counts['patient'] }}</div>
+            <span class="count_top"><i class="fa fa-users"></i>Total Mambers</span>
+            <div class="count green">{{ $counts['member'] }}</div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user "></i>Total Employees</span>
-            <div class="count green">{{ $counts['employees'] }}</div>
+            <span class="count_top"><i class="fas fa-file-pdf-o"></i>Total Online book</span>
+            <div class="count green">{{ $counts['online_library'] }}</div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-male"></i>Total Doctors</span>
-            <div class="count green">{{ $counts['doctor'] }}</div>
+            <span class="count_top"><i class="fas fa-book"></i>Total Book</span>
+            <div class="count green">{{ $counts['book'] }}</div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-calendar "></i>Appointments</span>
+            <span class="count_top"><i class="fas fa-pen-nib "></i>Author</span>
             <div>
-                <span class="count green">{{  $counts['appointments'] }}</span>
+                <span class="count green">{{  $counts['book_author'] }}</span>
             </div>
         </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-question"></i>Total Questions</span>
-            <div>
-                <span class="count green">{{  $counts['question'] }}</span>
-            </div>
-        </div>
+        
     </div>
     <!-- /top tiles -->
 
@@ -37,7 +32,7 @@
             <div class="x_panel">
                 <div class="row x_title">
                     <div class="col-md-6">
-                        <h3> Artificial LimbCare(PVT) LTD. Management System
+                        <h3> ARD is a book renting Management System
                         </h3>
                     </div>
                 </div>
@@ -60,15 +55,15 @@
                       <!-- Wrapper for slides -->
                       <div class="carousel-inner">
                         <div class="item active">
-                          <img src="img/bg-img/bg1.jpg" alt="Los Angeles" width="1800px" height="800px">
+                          <img src="https://cdn-images-1.medium.com/max/1600/0*Ugp4QQOB6XvJwi-L" alt="Los Angeles" width="1800px" height="800px">
                         </div>
                   
                         <div class="item">
-                          <img src="img/bg-img/bg3.jpg" alt="Chicago" width="1800px" height="800px">
+                          <img src="https://focusonbelgium.be/sites/default/files/styles/big_article_image/public/ku_leuven_rob_stevens_1.jpg?itok=ccpdnhlx" alt="Chicago" width="1800px" height="800px">
                         </div>
                       
                         <div class="item">
-                          <img src="img/bg-img/bg4.jpg" alt="New york" width="1800px" height="800px">
+                          <img src="https://aatvos.com/wp-content/uploads/2018/10/Aatvos_Koln-Kalk_library-social-inclusion-1.jpg" alt="New york" width="1800px" height="800px">
                         </div>
                       </div>
                   

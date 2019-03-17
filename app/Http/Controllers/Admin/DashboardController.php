@@ -31,15 +31,13 @@ class DashboardController extends Controller
     public function index()
     {
         $counts = [
-            'users' => \DB::table('users')->count(),
-            'employees' => \DB::table('employees')->count(),
-            'patient' => \DB::table('patient')->count(),
-            'question' => \DB::table('question')->count(),
+            'book' => \DB::table('book')->count(),
+            'book_author' => \DB::table('book_author')->count(),
+            'member' => \DB::table('member')->count(),
+            'online_library' => \DB::table('online_library')->count(),
             'users_unconfirmed' => \DB::table('users')->where('confirmed', false)->count(),
-            'appointments' => \DB::table('appointments')->where('date', Carbon::today())->count(),
             'users_inactive' => \DB::table('users')->where('active', false)->count(),
-            'protected_pages' => 0,
-            'doctor' => \DB::table('doctors')->count(),
+            'protected_pages' => 0
         ];
 
         foreach (\Route::getRoutes() as $route) {

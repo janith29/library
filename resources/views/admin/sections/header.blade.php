@@ -16,7 +16,7 @@
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li>
                             <a href="{{ route('logout') }}">
-                                <i class="fa fa-sign-out pull-right"></i> {{ __('views.backend.section.header.menu_0') }}
+                                <i class="fas fa-sign-out pull-right"></i> {{ __('views.backend.section.header.menu_0') }}
                             </a>
                         </li>
                         <li>

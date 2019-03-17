@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
-            <title>Artificial limb care (Pvt) Ltd</title>
+            <title>ARD book renting</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -232,7 +232,7 @@
                        
                        
                       </div>   </div> --}}
-        <div style="background-image: url(https://i.pinimg.com/originals/08/fa/02/08fa0275674fee050c47e3b1abd86b6b.jpg); background-repeat: repeat;  ">
+        <div style="background-image: url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Old-Library-Wallpaper-PIC-WPD005432.jpg); background-repeat: repeat;  ">
         @yield('navigation')
         @yield('content')
         </div>

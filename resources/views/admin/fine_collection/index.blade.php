@@ -27,11 +27,11 @@
         </div>
     </div>
     <div class="row">
-        @if ($quotations->isEmpty())
+        {{-- @if ($quotations->isEmpty()) --}}
         <div class="alert alert-danger" role="alert">
                 <p>Not have Data in service table</p>
         </div>
-        @else
+        {{-- @else --}}
         <div class="container">
                 <br>
                
@@ -49,7 +49,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($quotations as $quotation)
+                {{-- @foreach($quotations as $quotation)
                     <tr> 
                         <td>{{ $quotation->did }}</td>
                         <td>{{ $quotation->name }}</td>
@@ -68,14 +68,14 @@
                             
                         </td>
                     </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
     <div class="pull-right">
     </div>
 </div>
 </div>
-        @endif
+        {{-- @endif --}}
     
     </div>
     <div id="myModal" class="modal">

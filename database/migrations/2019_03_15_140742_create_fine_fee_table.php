@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeAppointmentTimeColumnType extends Migration
+class CreateFineFeeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class ChangeAppointmentTimeColumnType extends Migration
      */
     public function up()
     {
-        Schema::table('appointments', function ($table) {
-            $table->string('time')->change();
+        Schema::create('fine_fee', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('bookcatid');
+            $table->string('fee_per_day');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ class ChangeAppointmentTimeColumnType extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('fine_fee');
     }
 }

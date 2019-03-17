@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Employees extends Migration
+class CreateOnlineLibraryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class Employees extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('online_library', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Did');
-            $table->string('name');
-            $table->string('nic');	
-            $table->string('employeeType');	
-            $table->string('emp_pic');
-            $table->date('birthday');
-            $table->string('address');
+            $table->string('bookcatid');
+            $table->string('authorid');
+            $table->string('bookname');
+            $table->integer('pdf_doc');
+            $table->string('book_pic');
+            $table->integer('book_published_year');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class Employees extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('online_library');
     }
 }

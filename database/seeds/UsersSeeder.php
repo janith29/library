@@ -25,7 +25,7 @@ class UsersSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'email' => 'admin.laravel@labs64.com',
-                'password' => bcrypt('894564123'),
+                'password' => bcrypt('894564124'),
                 'active' => true,
                 'confirmation_code' => \Ramsey\Uuid\Uuid::uuid4(),
                 'confirmed' => true,
@@ -62,19 +62,6 @@ class UsersSeeder extends Seeder
 
         DB::table('users')->insert($users);
 
-        $this->enableForeignKeys();
-        DB::table('employees')->insert([
-            'Did' => 'EMP0001',
-            'name' => 'Buddika asanka',
-            'nic' => '894564123',
-            'employeeType' => 'administrator ',
-            'emp_pic' => '1pic.jpeg ',
-            'birthday' => '1988.08.24 ',
-            'address' => 'Ampara',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'email' => 'admin.laravel@labs64.com',
-            'contactNo' => '0713450257 '
-        ]);
+       
     }
 }

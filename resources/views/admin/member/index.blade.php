@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', "Patient Management")
+@section('title', "Member Management")
 
 @section('content')
     <link href="{{ asset('admin/css/userstyles.css') }}" rel="stylesheet">
@@ -13,12 +13,11 @@
                 
 
                     <div class="demptable">
-                        {{ link_to_route('admin.diagnosis.index', 'Diagnosis Card', null, ['class' => 'btn btn-warning']) }}
-                        {{ link_to_route('admin.patient.add', 'Add Patient', null, ['class' => 'btn btn-primary']) }}
-                        {{ link_to_route('admin.patient.chartView', 'Report', null, ['class' => 'btn btn-primary']) }}
+                        {{ link_to_route('admin.patient.add', 'Add member', null, ['class' => 'btn btn-primary']) }}
+                        {{-- {{ link_to_route('admin.patient.chartView', 'Report', null, ['class' => 'btn btn-primary']) }} --}}
                         <div class="right-searchbar">
                                 <!-- Search form -->
-                                <form action="patientsearch" method="post" class="form-inline">
+                                <form action="search" method="post" class="form-inline">
                                         {{ csrf_field() }}
                                     <div class="form-group">
                                         <input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search" required />
@@ -41,36 +40,36 @@
         @endif
 
             <div class="row">
-                @foreach($patients as $patient)
+                {{-- @foreach($patients as $patient) --}}
 
             <div class="col-xs-6 col-sm-3">
                 <div class="dcard">
                     <div class="row">
                         <div class="dcard-header">
                             <div class="dcard-body text-center" style="font-size: larger; color: white">
-                                <span class="dcard-title ">{{ $patient->name }}</span><br />
-                                <span class="dcard-title ">{{ $patient->Did }}</span><br />
+                                <span class="dcard-title "></span><br />
+                                <span class="dcard-title "></span><br />
                             </div>
                         <br/>
                             <div class="dcard-body text-center">
-                                <img src="\image\pat\profile\{{ $patient->pat_pic }}" alt="Pic" height="90" width="90"class="img-circle">
+                                <img src="\image\pat\profile\" alt="Pic" height="90" width="90"class="img-circle">
                             </div>
                             {{-- <span class="card-img">{{ HTML::image('img/nickfrost.jpg', 'Pic') }}</span> --}}
 
                         </div>
                     </div>
                     <div class="dcard-body text-center">
-                        {!! Form::open(array('route' => ['admin.patient.delete', $patient->id], 'method' => 'DELETE')) !!}
-                        <a href="{{ route('admin.patient.show', [$patient->id]) }}" class="btn btn-primary">View</a>
+                        {{-- {!! Form::open(array('route' => ['admin.patient.delete'], 'method' => 'DELETE')) !!} --}}
+                        <a href="" class="btn btn-primary">View</a>
                         <br/>
-                        <a href="{{ route('admin.patient.edit', [$patient->id]) }}" class="btn btn-success">Update</a>
-                        {{-- <a href="{{ route('admin.patients.delete') }}" class="btn btn-danger">Delete</a> --}}
-                        {!! Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
+                        <a href="" class="btn btn-success">Update</a>
+                        <a href=" " class="btn btn-danger">Delete</a>
+                        {{-- {!! Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) !!} --}}
                         {!! Form::close() !!}
                     </div>
                 </div>
             </div>
-            @endforeach
+            {{-- @endforeach --}}
 
         <div class="pull-right">
             {{-- {{ $users->links() }} --}}

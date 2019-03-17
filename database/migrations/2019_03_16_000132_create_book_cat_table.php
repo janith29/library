@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EmployeeInitialSalaryDisableColumn extends Migration
+class CreateBookCatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class EmployeeInitialSalaryDisableColumn extends Migration
      */
     public function up()
     {
-        Schema::table('employee_initial_salary', function (Blueprint $table) {
-            $table->string('status');
+        Schema::create('book_cat', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('bookid');
+            $table->string('book_cat_id');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ class EmployeeInitialSalaryDisableColumn extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('book_cat');
     }
 }

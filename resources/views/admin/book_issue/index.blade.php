@@ -42,7 +42,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($appointments as $appointment)
+                {{-- @foreach ($appointments as $appointment)
                     <tr>
                         <td>{{ $appointment->Did }}</td>
                         <td>{{ $appointment->date }}</td>
@@ -51,7 +51,7 @@
                         <td>{{ $appointment->type }}</td>
                         <td>
                             {{-- {!! Form::open(array('route' => ['admin.appointments.delete', $appointment->id], 'method' => 'DELETE')) !!} --}}
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.appointments.show', [$appointment->id]) }}">
+                                {{-- <a class="btn btn-xs btn-primary" href="{{ route('admin.appointments.show', [$appointment->id]) }}">
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 <a class="btn btn-xs btn-info" href="{{ route('admin.appointments.edit', [$appointment->id]) }}">
@@ -59,7 +59,7 @@
                                 </a>
                                 <a class="btn btn-xs btn-danger" onclick="return confirm('Will be permanently deleted?')" href="{{ route('admin.appointments.delete', $appointment->id) }}">
                                     <i class="fa fa-trash"></i>
-                                </a>
+                                </a> --}}
                                 {{-- {!! Form::button('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger', 'type' => 'submit', 'style'=> 'width: 18px; height: 22px;']) !!}
                             {!! Form::close() !!} --}}
                             {{--@if(!$user->hasRole('administrator'))--}}
@@ -68,9 +68,9 @@
                                     {{--<i class="fa fa-trash"></i>--}}
                                 {{--</button>--}}
                             {{--@endif--}}
-                        </td>
+                        {{-- </td>
                     </tr>
-                @endforeach
+                @endforeach --}} 
             </tbody>
         </table>
         <div class="pull-right">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOtherPaymentTable extends Migration
+class CreateBookAuthorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateOtherPaymentTable extends Migration
      */
     public function up()
     {
-        Schema::create('otherpay', function (Blueprint $table) {
+        Schema::create('book_author', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descrption');
-            $table->string('type');
-            $table->integer('amount');
+            $table->string('name');
+            $table->date('birthday');
+            $table->string('address');
+            $table->string('email')->nullable();
+            $table->string('contact')->nullable();
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -28,6 +30,6 @@ class CreateOtherPaymentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('otherpay');
+        Schema::dropIfExists('book_author');
     }
 }

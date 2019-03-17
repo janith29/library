@@ -42,7 +42,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($diagnosise as $diagnosis)
+                    {{-- @foreach($diagnosise as $diagnosis)
                         <tr> 
                             <td>{{ $diagnosis->Did }}</td>
                             <td>{{ $diagnosis->patientname }}</td>
@@ -61,7 +61,7 @@
                                 
                             </td>
                         </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
         <div class="pull-right">

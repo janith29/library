@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInvoiceTable extends Migration
+class CreateBookTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateInvoiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('invoice', function (Blueprint $table) {
+        Schema::create('book', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Did');
-            $table->integer('amount');
-            $table->integer('remaining_amount');
-            $table->string('patient_ID');
+            $table->string('authorid');
+            $table->string('bookname');
+            $table->integer('book_quantity_full');
+            $table->integer('book_quantity_now');
+            $table->string('book_pic');
+            $table->integer('book_published_year');
             $table->timestamps();
-            
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,6 +31,6 @@ class CreateInvoiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Invoice');
+        Schema::dropIfExists('book');
     }
 }

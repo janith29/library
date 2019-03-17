@@ -57,6 +57,26 @@ Route::group(['namespace' => 'Auth'], function () {
  */
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'administrator'], function () {
    
+
+    //member function
+    Route::get('member','MemberController@index')->name('member');
+    
+    //online book
+    Route::get('online_book','OnlineBookController@index')->name('online_book');
+    
+    //Book
+    Route::get('book','BookController@index')->name('book');
+  
+    //Book issue
+    Route::get('book_issue','BookIssueController@index')->name('book_issue');
+    
+    //fine collection
+    Route::get('fine_collection','FineCollectionController@index')->name('fine_collection');
+    
+    //Author
+    Route::get('author','AuthorController@index')->name('author');
+  
+    //artifical limcare
     Route::post('financial/bill/printbill', 'FinancialController@printbill');
     Route::post('financial/index_invoice/printinvoice', 'FinancialController@printinvoice');
     Route::get('financial/InReport','FinancialController@incomereport')->name('financial.IncomeReport');

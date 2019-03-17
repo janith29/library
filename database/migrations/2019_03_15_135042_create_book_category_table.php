@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIncomeTable extends Migration
+class CreateBookCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateIncomeTable extends Migration
      */
     public function up()
     {
-        Schema::create('income', function (Blueprint $table) {
+        Schema::create('book_category', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('amount');
+            $table->string('book_category_name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateIncomeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Income');
+        Schema::dropIfExists('book_category');
     }
 }

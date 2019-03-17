@@ -61,15 +61,15 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img src="img/bg-img/bg1.jpg" alt="Los Angeles" width="1800px" height="800px">
+          <img src="https://cdn-images-1.medium.com/max/1600/0*Ugp4QQOB6XvJwi-L" alt="Los Angeles" width="1800px" height="800px">
         </div>
   
         <div class="item">
-          <img src="img/bg-img/bg3.jpg" alt="Chicago" width="1800px" height="800px">
+          <img src="https://focusonbelgium.be/sites/default/files/styles/big_article_image/public/ku_leuven_rob_stevens_1.jpg?itok=ccpdnhlx" alt="Chicago" width="1800px" height="800px">
         </div>
       
         <div class="item">
-          <img src="img/bg-img/bg4.jpg" alt="New york" width="1800px" height="800px">
+          <img src="https://aatvos.com/wp-content/uploads/2018/10/Aatvos_Koln-Kalk_library-social-inclusion-1.jpg" alt="New york" width="1800px" height="800px">
         </div>
       </div>
   
