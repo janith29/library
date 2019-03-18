@@ -204,7 +204,7 @@
         @tojs
     </head>
     <body>
-            {{-- <div class="simpleslide100">
+            {{-- <div class="sipleslide100">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
