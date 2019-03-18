@@ -32,7 +32,7 @@
             <div class="x_panel">
                 <div class="row x_title">
                     <div class="col-md-6">
-                        <h3> ARD is a book renting Management System
+                        <h3> ARD book renting Management System
                         </h3>
                     </div>
                 </div>
