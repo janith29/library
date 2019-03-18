@@ -38,7 +38,7 @@
             <label for="service_type">Service type *</label>
             <select name="service_type" class="form-control" >
                 <option value="">Select one</option>
-                <option value="prosthesis">Prosthesis</option>
+                <option value="prosthesis">rosthesis</option>
                 <option value="orthosis">Orthosis</option>
                 <option value="cosmetic">Cosmetic solutions</option>
                 <option value="children">Children</option>
