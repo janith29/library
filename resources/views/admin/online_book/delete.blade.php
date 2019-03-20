@@ -8,16 +8,17 @@
                         <i class="fa fa-trash"></i>
                     </div>				
                     <h4 class="modal-title">Are you sure?</h4>	
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <a href="{{ route('admin.online_book') }}" class="close" data-dismiss="modal" aria-hidden="true">×</a>
+                   
                 </div>
                 <div class="modal-body">
-                    <p>Do you really want to delete employee named {{ $diagnosis->patientname }} with id {{ $diagnosis->id }}? This process cannot be undone.</p>
+                    <p>Do you really want to delete item named {{ $books->bookname }} with id {{ $books->id }}? This process cannot be undone.</p>
                 </div>
                 <div class="modal-footer">
-                        <a href="{{ route('admin.diagnosis.index') }}" class="btn btn-primary">Cancel</a>
-                        <form action="deletediagnosis" method="post">
+                        <a href="{{ route('admin.online_book') }}" class="btn btn-primary">Cancel</a>
+                        <form action="deletebook" method="post">
                                 {{ csrf_field() }}
-                    <input type="hidden" id="id" name="id" value="{{ $diagnosis->id }}">
+                    <input type="hidden" id="id" name="id" value="{{ $books->id }}">
                     <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                 </div>

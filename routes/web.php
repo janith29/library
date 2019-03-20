@@ -60,237 +60,68 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     //member function
     Route::get('member','MemberController@index')->name('member');
-    
+    Route::get('member/add', 'MemberController@create')->name('member.add');
+    Route::post('member/addmember', 'MemberController@store')->name('member.store');
+    Route::get('member/delete/{member}', 'MemberController@destroy')->name('member.delete');
+    Route::post('member/delete/deletemember','MemberController@sedelete');
     //online book
     Route::get('online_book','OnlineBookController@index')->name('online_book');
+    Route::get('online_book/add', 'OnlineBookController@create')->name('online_book.add');
     
+    Route::post('online_book/addbook', 'OnlineBookController@store')->name('online_book.addbook');
+    Route::get('online_book/{bookonline}', 'OnlineBookController@show')->name('online_book.show');
+    Route::get('online_book/edit/{bookonline}', 'OnlineBookController@edit')->name('online_book.edit');
+   
+    Route::post('online_book/edit/updatebook','OnlineBookController@update');
+
+    Route::get('online_book/delete/{bookonline}', 'OnlineBookController@destroy')->name('online_book.delete');
+    Route::post('online_book/delete/deletebook','OnlineBookController@sedelete');
+
     //Book
     Route::get('book','BookController@index')->name('book');
-  
-    //Book issue
+    Route::get('book/add','BookController@create')->name('book.add');
+    Route::get('book_category/add','BookController@createbook_category')->name('book_category.add');
+    Route::post('book_category/addbook_category', 'BookController@store_book_category')->name('book_category.store_book_category');
+    Route::post('book/addbook', 'BookController@store')->name('book.addbook');
+    Route::get('book/{book}', 'BookController@show')->name('book.show');
+    Route::get('book/edit/{book}', 'BookController@edit')->name('book.edit');
+   
+    Route::post('book/edit/updatebook','BookController@update');
+
+    Route::get('book/delete/{book}', 'BookController@destroy')->name('book.delete');
+    Route::post('book/delete/deletebook','BookController@sedelete');
+    //Book issue addbook_category
     Route::get('book_issue','BookIssueController@index')->name('book_issue');
-    
+    Route::get('book_issue/add','BookIssueController@create')->name('book_issue.add');
+    Route::post('book_issue/addbook/addbook_issue', 'BookIssueController@store')->name('book_issue.addbook');
+    Route::get('book_issue/{book}', 'BookIssueController@show')->name('book_issue.show');
+    Route::get('book_issue/edit/{book}', 'BookIssueController@edit')->name('book_issue.edit');
+   
+    Route::post('book_issue/addbook/book_issue_book', 'BookIssueController@book_issue_book')->name('book_issue.addbook');
+    Route::post('book_issue/addbook/book_issue_add', 'BookIssueController@book_issue_add')->name('book_issue.addbook.book_issue_add');
+    Route::post('book_issue/edit/updatebook','BookIssueController@update');
+
+    Route::get('book_issue/delete/{book}', 'BookIssueController@destroy')->name('book_issue.delete');
+    Route::post('book_issue/delete/deletebook','BookIssueController@sedelete');
+
+    Route::get('book_issue/addbook/{member}', 'BookIssueController@selectbook')->name('book_issue.addbook');
+    Route::post('book_issue/book_issue_member','BookIssueController@book_issue_member');
+
     //fine collection
     Route::get('fine_collection','FineCollectionController@index')->name('fine_collection');
     
-    //Author
+    //Author addauthor
     Route::get('author','AuthorController@index')->name('author');
-  
-    //artifical limcare
-    Route::post('financial/bill/printbill', 'FinancialController@printbill');
-    Route::post('financial/index_invoice/printinvoice', 'FinancialController@printinvoice');
-    Route::get('financial/InReport','FinancialController@incomereport')->name('financial.IncomeReport');
-
-    Route::post('financial/Incomereport', 'FinancialController@displayIncomeReport');
-
-    Route::get('financial/outReport','FinancialController@Outcomereport')->name('financial.OutcomeReport');
-
-    Route::post('financial/Outcomereport', 'FinancialController@displayOutcomeReport');
-    Route::get('question_forum/qareport','QuestionsForumController@report')->name('question_forum.qareport');
-    Route::post('question_forum/qarepo', 'QuestionsForumController@QAReport');
-    Route::get('diagnosis/DiaReport','DiagnosisController@Report')->name('diagnosis.DiaReport');
-    Route::post('diagnosis/direpo', 'DiagnosisController@DiaReport');
+    Route::get('author/add', 'AuthorController@create')->name('author.add');
+    Route::post('author/addauthor', 'AuthorController@store')->name('author.store');
+   
     // Dashboard
     Route::get('/', 'DashboardController@index')->name('dashboard');
-    Route::post('storereport', 'StoreController@displayReport');
-    
-    Route::post('financial/searchinvoice','FinancialController@searchinvoice');
-    Route::post('financial/searchbillin','FinancialController@searchbillin');
-    Route::post('financial/searchbill','FinancialController@searchbill');
-    Route::post('financial/add_salary/addsalary','FinancialController@salary');
-
-    //quotation
-    Route::get('quotation','QuotationController@index')->name('quotation');
-    Route::get('quotation/add', 'QuotationController@create')->name('quotation.add');
-    Route::post('quotation/addquotation', 'QuotationController@store');
-    Route::get('quotation/show/{quotation}', 'QuotationController@show')->name('quotation.show');
-    Route::get('quotation/delete/{quotation}', 'QuotationController@destroy')->name('quotation.delete');
-    Route::get('quotation/edit/{quotation}', 'QuotationController@edit')->name('quotation.edit');
-    
-    Route::post('quotation/edit/updatequotation', 'QuotationController@update');
-    Route::post('quotation/show/printQuotation', 'QuotationController@print');
    
-    Route::post('searchQuotation','QuotationController@search');
-    Route::post('quotation/delete/deletequotation', 'QuotationController@sedelete');
-    //Employee
-    Route::get('employees', 'EmployeeController@index')->name('employees');
-    Route::get('employees/add', 'EmployeeController@create')->name('employees.add');
-    Route::post('employees/store', 'EmployeeController@store')->name('employees.store');
-    Route::get('employees/report', 'EmployeeController@gotoReport')->name('employees.report');
-    Route::post('employees/rep', 'EmployeeController@generateReport')->name('employees.rep');
-    Route::get('employees/{employee}', 'EmployeeController@show')->name('employees.show');
-    Route::get('employees/{employee}/edit', 'EmployeeController@edit')->name('employees.edit');
-    Route::put('employees/{employee}', 'EmployeeController@update')->name('employees.update');
-    // Route::delete('employees/delete', 'EmployeeController@delete')->name('employees.delete');
-    Route::delete('employees/{employee}/delete', 'EmployeeController@destroy')->name('employees.delete');
     
 
-    //Appointment
-    Route::get('appointments', 'AppointmentController@index')->name('appointments');
-    Route::get('appointments/add', 'AppointmentController@create')->name('appointments.add');
-    Route::post('appointments/checkDate', 'AppointmentController@checkDate')->name('appointments.checkDate');
-    Route::post('appointments/checkDate/store', 'AppointmentController@store')->name('appointments.checkDate.store');
-    Route::get('appointments/report', 'AppointmentController@gotoReport')->name('appointments.report');
-    Route::post('appointments/rep', 'AppointmentController@generateReport')->name('appointments.rep');
-    Route::get('appointments/{appointment}', 'AppointmentController@show')->name('appointments.show');
-    Route::get('appointments/{appointment}/edit', 'AppointmentController@edit')->name('appointments.edit');
-    Route::put('appointments/{appointment}', 'AppointmentController@update')->name('appointments.update');
-    // Route::delete('appointments/{appointment}/delete', 'AppointmentController@destroy')->name('appointments.delete');
-    Route::get('appointments/{appointment}/delete', ['as' => 'appointments.delete', 'uses' => 'AppointmentController@destroy']);
-    
-    //Diagnosis
-    Route::get('diagnosis', 'DiagnosisController@index')->name('diagnosis');
-    Route::get('diagnosis', 'DiagnosisController@index')->name('diagnosis.index');
-    Route::get('diagnosis/indexadd', 'DiagnosisController@indexad')->name('diagnosis.indexadd');
-    Route::get('diagnosis/edit/{diagnosis}', 'DiagnosisController@edit')->name('diagnosis.edit');
-    Route::get('diagnosis/add/{patient}', 'DiagnosisController@create')->name('diagnosis.add');
-    Route::get('diagnosis/delete/{diagnosis}', 'DiagnosisController@destroy')->name('diagnosis.delete');
-    Route::get('diagnosis/{diagnosis}', 'DiagnosisController@show')->name('diagnosis.show');
-   
-    Route::post('diagnosis/searchpationdiagnosis','DiagnosisController@searchpationdiagnosis');
-    Route::post('diagnosis/adddiagnosissketch','DiagnosisController@adddiagnosissketch');
-    Route::post('diagnosis/add/adddiagnosis','DiagnosisController@store');
-    Route::post('diagnosis/edit/updatediagnosis','DiagnosisController@update');
-    
-    Route::post('searchdiagnosis','DiagnosisController@search');
-    Route::post('diagnosis/delete/deletediagnosis','DiagnosisController@padelete');
-    
-    //Doctor
-    Route::get('doctors', 'DoctorController@index')->name('doctors');
-    Route::any('doctorsearch','DoctorController@search');
-    Route::get('doctors/{doctor}/edit', 'DoctorController@edit')->name('doctors.edit');
-    Route::get('doctors/report','DoctorController@report')->name('doctors.report');
-
-    Route::get('doctors/add', 'DoctorController@add')->name('doctors.add');
-    Route::get('doctors/{doctor}', 'DoctorController@show')->name('doctors.show');
-    Route::post('doctors/{doctor}/editdoc','doctorController@update');
-
-    Route::put('doctors/update' , 'DoctorController@update')->name('doctors.update');
-    //Route::delete('doctors/{user}', 'DoctorController@destroy')->name('doctors.destroy');
-//    Route::get('doctors/del', 'DoctorController@delete')->name('doctors.delete');
-    Route::delete('doctors/{doctor}/delete', 'DoctorController@destroy')->name('doctor.delete');
-    //Route::get('doctors/report', 'DoctorController@add')->name('doctors.report');
-    Route::post('doctors/cal','DoctorController@create');
-    Route::post('doctors/edit','DoctorController@update');
-    Route::post('doctors/report', 'DoctorController@displayReport');
-
-    //Financial
-    Route::get('financial', 'FinancialController@index')->name('financial');
-    Route::get('financial/index_bill', 'FinancialController@indexbill')->name('financial.index_bill');
-    Route::get('financial/index_salary', 'FinancialController@indexsalary')->name('financial.index_salary');
-    Route::get('financial/index_other', 'FinancialController@indexother')->name('financial.index_other');
-    Route::get('financial/{financialBill}/edit', 'FinancialController@edit')->name('financial.edit');
-    Route::get('financial/index_invoice/{Invoice}', 'FinancialController@showinvoce')->name('financial.showinvoice');
-    Route::get('financial/bill/{financialBill}', 'FinancialController@show')->name('financial.showBill');
-    Route::get('financial/salary/{financialSalaryPayment}', 'FinancialController@showSalaryPayment')->name('financial.showSalary');
-    Route::get('financial/otherpay/{financialOtherPayment}', 'FinancialController@showOtherPayment')->name('financial.showOtherPay');
-    
-    Route::get('financial/add_bill', 'FinancialController@addbill')->name('financial.add_bill');
-    Route::get('financial/add_salary/{emp}', 'FinancialController@addsalary')->name('financial.add_salary');
-    Route::get('financial/add_salaryindex', 'FinancialController@addsalaryindex')->name('financial.add_salaryindex');
-    
-    Route::get('financial/add_other', 'FinancialController@addother')->name('financial.add_other');
-    Route::get('financial/add', 'FinancialController@create')->name('financial.add');
-
-    //invoice newinvoice addninvoice
-    Route::get('financial/newinvoice/{patient}', 'FinancialController@newinvoice')->name('financial.newinvoice');
-    Route::get('financial/index_invoice', 'FinancialController@invoice')->name('financial.index_invoice');
-    Route::get('financial/add_invoice', 'FinancialController@addinvoice')->name('financial.add_invoice');
-    //financial bill edit
-    Route::post('financial/{financialBill}/update', 'FinancialController@update');
-    //financial salary edit
-    Route::get('financial/{financialSalary}/edit_salary', 'FinancialController@editSalary')->name('financial.edit_salary');
-     //financial otherpay edit
-    Route::get('financial/{financialOtherPay}/edit_otherpay', 'FinancialController@editOtherPay')->name('financial.edit_otherpay');
-    
-    //financial salary delete
-    Route::get('financial/delete/{financialSalary}', 'FinancialController@destroyRequest')->name('financial.delete');
-    //financial bill delete
-    Route::get('financial/deleteBill/{financialBill}', 'FinancialController@destroyBillRequest')->name('financial.deleteBill');
-    //financial otherpay delete
-    Route::get('financial/deleteOtherPay/{financialOtherPay}', 'FinancialController@destroyOtherpayRequest')->name('financial.deleteOtherPay');
-    Route::post('financial/deleteOtherPay/destroy','FinancialController@destroyOtherPay');
-    Route::post('financial/{financialSalary}/updateSalary', 'FinancialController@updateSalary');
-    Route::post('financial/deleteBill/destroy','FinancialController@destroyBill');
-    Route::post('financial/{financialOtherPay}/updateOtherPay', 'FinancialController@updateOtherPay');
-    Route::post('financial/delete/destroy','FinancialController@destroy');
-    Route::post('financial/newinvoice/addninvoice', 'FinancialController@newTinvoice');
-    Route::post('financial/add_bill/addbillinvoice/addbill','FinancialController@stor');
-    Route::post('financial/addsalary','FinancialController@salary');
-    Route::post('financial/addother','FinancialController@other');
-    Route::get('financial/add_bill/addbillinvoice/{invoice}','FinancialController@billinvoicew')->name('financial.addbillinvoice');
-    // Route::get('financial/{employee}/edit', 'EmployeeController@edit')->name('employees.edit');
-    // Route::put('financial/{employee}', 'EmployeeController@update')->name('employees.update');
-
-    //Patient
-     Route::post('patientsearch','PatientController@search');
-    Route::post('patientsreport', 'PatientController@displayReport');
-
-    Route::get('patient', 'PatientController@index')->name('patients');
-    Route::get('patient/add', 'PatientController@create')->name('patient.add');
-    //Route::post('patient/store', 'PatientController@store')->name('patient.store');
-    Route::get('patient/{patient}', 'PatientController@show')->name('patient.show');
-    Route::get('patient/{patient}/edit', 'PatientController@edit')->name('patient.edit');
-    Route::put('patient/{employee}', 'PatientController@update')->name('patient.update');
-    Route::delete('patient/{patient}/delete', 'PatientController@destroy')->name('patient.delete');
-    Route::post('patient/patient','PatientController@store');
-
-    Route::post('patient/{patient}/editpat','PatientController@update');
-    Route::get('/laravel_google_chart', 'LaravelGoogleGraph@index');
-    Route::get('chartView','PatientController@re')->name('patient.chartView');
-    
-        //Services
-    Route::get('services', 'ServiceController@index')->name('services');
-    Route::get('services/add', 'ServiceController@create')->name('services.add');
-    Route::get('services/{service}', 'ServiceController@show')->name('services.show');
-    Route::get('services/edit/{service}', 'ServiceController@edit')->name('services.edit');
-    Route::get('services/delete/{service}', 'ServiceController@destroy')->name('services.delete');
-    Route::post('services/addservice','ServiceController@store');
-    Route::post('services/edit/updateservices','ServiceController@update');
-    Route::post('searchservice','ServiceController@search');
-    Route::post('services/delete/deleteservices','ServiceController@sedelete');
-    
-    //Store
-    Route::get('store', 'StoreController@index')->name('store');
-    Route::get('store/edit/{store}', 'StoreController@edit')->name('store.edit');
-    Route::get('store/add', 'StoreController@create')->name('store.add');
-    Route::get('store/delete/{store}', 'StoreController@destroy')->name('store.delete');
-    Route::get('store/{store}', 'StoreController@show')->name('store.show');
-    Route::get('store/plus/{store}', 'StoreController@plus')->name('store.plus');
-    Route::get('store/minus/{store}', 'StoreController@min')->name('store.minus');
-    
-    Route::get('/report', 'StoreController@reportS')->name('store.report');
-    Route::post('store/edit/updatestore','StoreController@update');
-    Route::post('store/plus/addstore','StoreController@UPplus');
-    Route::post('store/minus/minstore','StoreController@minitem');
-    Route::post('store/delete/deletestores','StoreController@sedelete');
-    Route::post('searchstore','StoreController@search');
-    Route::post('store/additem','StoreController@store');
-    
-    //question
-    Route::get('question_forum', 'QuestionsForumController@index')->name('question_forum');
-    Route::get('question_forum/edit/{replye}', 'QuestionsForumController@edit')->name('question_forum.edit');
-    Route::get('question_forum/add', 'QuestionsForumController@create')->name('question_forum.add');
-    Route::get('question_forum/delete/{questionsforum}', 'QuestionsForumController@destroy')->name('question_forum.delete');
-    Route::get('question_forum/{questionsforum}', 'QuestionsForumController@show')->name('question_forum.show');
-    Route::get('question_forum/reply/{questionsforum}', 'QuestionsForumController@reply')->name('question_forum.reply');
-    Route::post('searchquestion','QuestionsForumController@search');
-    Route::post('question_forum/reply/addreply','QuestionsForumController@addreplye');
-    Route::post('question_forum/edit/updatereply','QuestionsForumController@update');
-    Route::post('question_forum/delete/deletequestions','QuestionsForumController@qdelete');
-    Route::post('question_forum/addques','QuestionsForumController@store');
-   
-    //Users
-    Route::get('users', 'UserController@index')->name('users');
-    Route::get('users/{user}', 'UserController@show')->name('users.show');
-    Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
-    Route::put('users/{user}', 'UserController@update')->name('users.update');
-    Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
-    Route::get('permissions', 'PermissionController@index')->name('permissions');
-    Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
-    Route::get('dashboard/log-chart', 'DashboardController@getLogChartData')->name('dashboard.log.chart');
-    Route::get('dashboard/registration-chart', 'DashboardController@getRegistrationChartData')->name('dashboard.registration.chart');
-});
+  
+    });
 
 Route::group(['prefix' => 'patient', 'as' => 'patient.', 'namespace' => 'patient', 'middleware' => 'patient'], function () {
     // Dashboard

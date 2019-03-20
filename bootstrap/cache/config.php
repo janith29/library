@@ -5,7 +5,7 @@
   ),
   'app' => 
   array (
-    'name' => '',
+    'name' => 'ARD book renting',
     'env' => 'local',
     'debug' => true,
     'debug_emails' => NULL,
@@ -225,7 +225,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\janith\\Desktop\\library\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -391,7 +391,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => 'C:\\Users\\janith\\Desktop\\library\\storage\\debugbar',
+      'path' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\debugbar',
       'connection' => NULL,
       'provider' => '',
     ),
@@ -471,10 +471,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\Users\\janith\\Desktop\\library\\storage\\fonts/',
-      'font_cache' => 'C:\\Users\\janith\\Desktop\\library\\storage\\fonts/',
+      'font_dir' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\fonts/',
+      'font_cache' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\fonts/',
       'temp_dir' => 'C:\\Users\\janith\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\Users\\janith\\Desktop\\library',
+      'chroot' => 'C:\\Users\\janith\\Desktop\\library\\library',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -497,12 +497,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\janith\\Desktop\\library\\storage\\app',
+        'root' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\janith\\Desktop\\library\\storage\\app/public',
+        'root' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -538,7 +538,7 @@
     'include_helpers' => false,
     'helper_files' => 
     array (
-      0 => 'C:\\Users\\janith\\Desktop\\library/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+      0 => 'C:\\Users\\janith\\Desktop\\library\\library/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ),
     'model_locations' => 
     array (
@@ -585,7 +585,7 @@
   ),
   'log-viewer' => 
   array (
-    'storage-path' => 'C:\\Users\\janith\\Desktop\\library\\storage\\logs',
+    'storage-path' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\logs',
     'pattern' => 
     array (
       'prefix' => 'laravel-',
@@ -671,7 +671,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\janith\\Desktop\\library\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\janith\\Desktop\\library\\library\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -679,7 +679,7 @@
   array (
     'defaults' => 
     array (
-      'title' => '',
+      'title' => 'ARD book renting',
       'description' => NULL,
       'keywords' => NULL,
       'author' => NULL,
@@ -687,15 +687,15 @@
       'robots' => 'INDEX, FOLLOW',
       'og' => 
       array (
-        'title' => '',
+        'title' => 'ARD book renting',
         'image' => NULL,
         'description' => NULL,
         'type' => NULL,
-        'site_name' => '',
+        'site_name' => 'ARD book renting',
       ),
       'twitter' => 
       array (
-        'title' => '',
+        'title' => 'ARD book renting',
         'image' => NULL,
         'description' => NULL,
         'card' => NULL,
@@ -704,10 +704,10 @@
       ),
       'dc' => 
       array (
-        'title' => '',
+        'title' => 'ARD book renting',
         'description' => NULL,
         'subject' => NULL,
-        'identifier' => '',
+        'identifier' => 'ARD book renting',
         'creator' => NULL,
         'publisher' => NULL,
         'rights_holder' => NULL,
@@ -718,7 +718,7 @@
         'audience' => NULL,
       ),
     ),
-    'title_suffix' => '| ',
+    'title_suffix' => '| ARD book renting',
   ),
   'protection' => 
   array (
@@ -914,7 +914,7 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\janith\\Desktop\\library\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -960,9 +960,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\janith\\Desktop\\library\\resources\\views',
+      0 => 'C:\\Users\\janith\\Desktop\\library\\library\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\janith\\Desktop\\library\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\framework\\views',
   ),
   'trustedproxy' => 
   array (
@@ -985,7 +985,7 @@
         'host' => 'localhost',
         'port' => 11211,
       ),
-      'dir' => 'C:\\Users\\janith\\Desktop\\library\\storage\\cache',
+      'dir' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\cache',
     ),
     'properties' => 
     array (
@@ -1051,7 +1051,7 @@
       ),
       'store' => 
       array (
-        'path' => 'C:\\Users\\janith\\Desktop\\library\\storage\\exports',
+        'path' => 'C:\\Users\\janith\\Desktop\\library\\library\\storage\\exports',
         'returnInfo' => false,
       ),
       'pdf' => 
@@ -1061,15 +1061,15 @@
         array (
           'DomPDF' => 
           array (
-            'path' => 'C:\\Users\\janith\\Desktop\\library\\vendor/dompdf/dompdf/',
+            'path' => 'C:\\Users\\janith\\Desktop\\library\\library\\vendor/dompdf/dompdf/',
           ),
           'tcPDF' => 
           array (
-            'path' => 'C:\\Users\\janith\\Desktop\\library\\vendor/tecnick.com/tcpdf/',
+            'path' => 'C:\\Users\\janith\\Desktop\\library\\library\\vendor/tecnick.com/tcpdf/',
           ),
           'mPDF' => 
           array (
-            'path' => 'C:\\Users\\janith\\Desktop\\library\\vendor/mpdf/mpdf/',
+            'path' => 'C:\\Users\\janith\\Desktop\\library\\library\\vendor/mpdf/mpdf/',
           ),
         ),
       ),

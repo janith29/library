@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
+use Carbon\Carbon;
+use App\Models\Book_author;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
 class AuthorController extends Controller
 {
     /**
@@ -14,7 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('admin.author.index');
+        $Book_authors=Book_author::all();
+        return view('admin.author.index', compact('Book_authors'));
     }
 
     /**
@@ -24,7 +28,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.author.add');
     }
 
     /**
@@ -33,9 +37,31 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Book_author $Book_author)
     {
-        //
+        $pic_name="panding";
+        $file=$request ->file('author_image');
+
+        $authorVals = DB::select('select * from book_author ORDER BY id DESC LIMIT 1');
+        $type=$file->guessExtension();
+        $lastid = 0;
+        foreach($authorVals as $authorVal)
+        {
+            $lastid=$authorVal->id;
+        }
+        $lastid=$lastid+1;
+        $pic_name=$lastid."member.".$type;
+        $file->move('image/author/pic',$pic_name);
+
+       $Book_author->name = $request->get('author_name');
+       $Book_author->birthday = $request->get('birthday');
+       $Book_author->address = $request->get('author_address');
+       $Book_author->pic = $pic_name;
+       $Book_author->email = $request->get('email');
+       $Book_author->contact = $request->get('contact');
+       $Book_author->save();
+       
+       return view('admin.author.success');
     }
 
     /**

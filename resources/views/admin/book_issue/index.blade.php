@@ -3,17 +3,16 @@
 @section('content')
     <div class="row title-section">
         <div class=".col-xs-12 .col-sm-6 .col-lg-8">
-            @section('title', "Appointments")
+            @section('title', "Book issue Management ")
         </div>
         <div class=".col-xs-6 .col-lg-4 searchbar-addbt">
             <div class="topicbar">
                 {{-- <a href="{{ route('admin.employees.add') }}" class="btn btn-primary">Add Employee</a> --}}
-                {{ link_to_route('admin.appointments.add', 'Add Appointment', null, ['class' => 'btn btn-primary']) }}
-                {{ link_to_route('admin.appointments.report', 'Create Report', null, ['class' => 'btn btn-primary']) }}
+                {{ link_to_route('admin.book_issue.add', 'Add Book issue', null, ['class' => 'btn btn-primary']) }}
             </div>
             <div class="right-searchbar">
                 <!-- Search form -->
-                <form action="{{ route('admin.appointments') }}" method="get" class="form-inline">
+                <form action="{{ route('admin.book_issue') }}" method="get" class="form-inline">
                     <div class="form-group">
                         <input class="form-control" type="text" name="key" placeholder="Search" aria-label="Search" value="{{isSet($key) ? $key : ''}}" />
                     </div>
@@ -33,44 +32,35 @@
                 width="100%">
             <thead> 
             <tr>
-                <th>@sortablelink('Did', "DID",['page' => ''])</th>
-                <th>@sortablelink('date', "Date",['page' => ''])</th>
-                <th>@sortablelink('time', "Time",['page' => ''])</th>
-                <th>@sortablelink('name', "Name",['page' => ''])</th>
-                <th>@sortablelink('type', "Type",['page' => ''])</th>
+                <th>ID</th>
+                <th>Member name</th>
+                <th>Book name</th>
+                <th>Get date</th>
+                <th>Book issued day</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($appointments as $appointment)
+               @foreach ($Book_issues as $Book_issue)
                     <tr>
-                        <td>{{ $appointment->Did }}</td>
-                        <td>{{ $appointment->date }}</td>
-                        <td>{{ $appointment->time }}</td>
-                        <td>{{ $appointment->name }}</td>
-                        <td>{{ $appointment->type }}</td>
+                        <td>{{ $Book_issue->id }}</td>
+                        <td>{{ $Book_issue->member_id }}</td>
+                        <td>{{ $Book_issue->book_id }}</td>
+                        <td>{{ $Book_issue->getdate }}</td>
+                        <td>{{ $Book_issue->book_issued_day }}</td>
                         <td>
-                            {{-- {!! Form::open(array('route' => ['admin.appointments.delete', $appointment->id], 'method' => 'DELETE')) !!} --}}
-                                {{-- <a class="btn btn-xs btn-primary" href="{{ route('admin.appointments.show', [$appointment->id]) }}">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a class="btn btn-xs btn-info" href="{{ route('admin.appointments.edit', [$appointment->id]) }}">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a class="btn btn-xs btn-danger" onclick="return confirm('Will be permanently deleted?')" href="{{ route('admin.appointments.delete', $appointment->id) }}">
-                                    <i class="fa fa-trash"></i>
-                                </a> --}}
-                                {{-- {!! Form::button('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger', 'type' => 'submit', 'style'=> 'width: 18px; height: 22px;']) !!}
-                            {!! Form::close() !!} --}}
-                            {{--@if(!$user->hasRole('administrator'))--}}
-                                {{--<button class="btn btn-xs btn-danger user_destroy"--}}
-                                        {{--data-url="{{ route('admin.users.destroy', [$user->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.delete') }}">--}}
-                                    {{--<i class="fa fa-trash"></i>--}}
-                                {{--</button>--}}
-                            {{--@endif--}}
-                        {{-- </td>
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.book.show',[$Book_issue->id]) }}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a class="btn btn-xs btn-info" href="{{  route('admin.book.edit',[$Book_issue->id]) }}">
+                                        <i class="fas fa-pencil"></i>
+                                    </a>
+                                    <a class="btn btn-xs btn-danger" href="{{ route('admin.book.delete',[$Book_issue->id]) }}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                        </td>
                     </tr>
-                @endforeach --}} 
+                @endforeach 
             </tbody>
         </table>
         <div class="pull-right">

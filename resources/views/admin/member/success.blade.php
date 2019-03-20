@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', "Patient Management")
+@section('title', "Member Management")
 
 @section('content')
     <div class="row">
@@ -15,10 +15,10 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <p>Success done Edit Patients</p>
+                        <p>Success done Member</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('admin.patients') }}" class="btn btn-primary">Ok</a>
+                        <a href="{{ route('admin.member') }}" class="btn btn-primary">Ok</a>
                     </div>
                 </div>
             </div>

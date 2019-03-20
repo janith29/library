@@ -16,8 +16,9 @@ class CreateBookAuthorTable extends Migration
         Schema::create('book_author', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->date('birthday');
+            $table->date('birthday')->nullable();
             $table->string('address');
+            $table->string('pic');
             $table->string('email')->nullable();
             $table->string('contact')->nullable();
             $table->timestamps();

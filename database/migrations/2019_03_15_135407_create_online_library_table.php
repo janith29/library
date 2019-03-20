@@ -15,10 +15,9 @@ class CreateOnlineLibraryTable extends Migration
     {
         Schema::create('online_library', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('bookcatid');
             $table->string('authorid');
             $table->string('bookname');
-            $table->integer('pdf_doc');
+            $table->string('pdf_doc');
             $table->string('book_pic');
             $table->integer('book_published_year');
             $table->timestamps();

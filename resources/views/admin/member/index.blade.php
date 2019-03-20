@@ -13,7 +13,7 @@
                 
 
                     <div class="demptable">
-                        {{ link_to_route('admin.patient.add', 'Add member', null, ['class' => 'btn btn-primary']) }}
+                        {{ link_to_route('admin.member.add', 'Add member', null, ['class' => 'btn btn-primary']) }}
                         {{-- {{ link_to_route('admin.patient.chartView', 'Report', null, ['class' => 'btn btn-primary']) }} --}}
                         <div class="right-searchbar">
                                 <!-- Search form -->
@@ -40,36 +40,38 @@
         @endif
 
             <div class="row">
-                {{-- @foreach($patients as $patient) --}}
+                @foreach($members as $member)
 
             <div class="col-xs-6 col-sm-3">
                 <div class="dcard">
                     <div class="row">
                         <div class="dcard-header">
                             <div class="dcard-body text-center" style="font-size: larger; color: white">
-                                <span class="dcard-title "></span><br />
-                                <span class="dcard-title "></span><br />
+                                <span class="dcard-title ">{{$member->name}}</span><br />
+                                <span class="dcard-title ">{{$member->contact}}</span><br />
                             </div>
                         <br/>
                             <div class="dcard-body text-center">
-                                <img src="\image\pat\profile\" alt="Pic" height="90" width="90"class="img-circle">
+                                <img src="\image\member\pic\{{$member->mbr_pic}}" alt="Pic" height="90" width="90"class="img-circle">
                             </div>
                             {{-- <span class="card-img">{{ HTML::image('img/nickfrost.jpg', 'Pic') }}</span> --}}
 
                         </div>
                     </div>
                     <div class="dcard-body text-center">
-                        {{-- {!! Form::open(array('route' => ['admin.patient.delete'], 'method' => 'DELETE')) !!} --}}
-                        <a href="" class="btn btn-primary">View</a>
-                        <br/>
-                        <a href="" class="btn btn-success">Update</a>
-                        <a href=" " class="btn btn-danger">Delete</a>
-                        {{-- {!! Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) !!} --}}
-                        {!! Form::close() !!}
+                        <a class="btn btn-xs btn-primary" href="{{ route('admin.member',[$member->id]) }}">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a class="btn btn-xs btn-info" href="{{  route('admin.member',[$member->id]) }}">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class="btn btn-xs btn-danger" href="{{ route('admin.member.delete',[$member->id]) }}">
+                            <i class="fa fa-trash"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            {{-- @endforeach --}}
+            @endforeach
 
         <div class="pull-right">
             {{-- {{ $users->links() }} --}}

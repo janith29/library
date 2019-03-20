@@ -4,7 +4,7 @@
                 
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand active" href="{{ url('/') }}">Artificiallimbcare.lk</a>
+      <a class="navbar-brand active" href="{{ url('/') }}">ARD book renting</a>
     </div>
     <ul class="nav navbar-nav">
       <li ><a href="{{ url('/') }}">{{ __('views.welcome.home') }}</a></li>

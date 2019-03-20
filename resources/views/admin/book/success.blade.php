@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', "Service Management")
+@section('title', "Book Management")
 
 @section('content')
     <div class="row">
@@ -15,10 +15,10 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <p>Success done your job Service</p>
+                            <p>Success done your job Book</p>
                         </div>
                         <div class="modal-footer">
-                        <a href="/admin/services" class="btn btn-primary">Ok</a>
+                        <a href="/admin/book" class="btn btn-primary">Ok</a>
                         </div>
                     </div>
                 </div>

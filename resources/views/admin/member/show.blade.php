@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', __('views.admin.users.show.title', ['name' => $patient->name]))
+@section('title', __( "Book Management", ['name' => $book->name]))
 
 @section('content')
     <div class="row">
@@ -9,7 +9,7 @@
             <tr>
                 <th>{{ __('views.admin.users.show.table_header_0') }}</th>
                 <td>
-                     <img id="myImg" src="\image\pat\profile\{{ $patient->pat_pic }}" alt="Snow" style="width:100%;max-width:200px">{{-- {{ $employee->avatar }} --}}
+                     <img id="myImg" src="\image\book\pic\{{$book->book_pic}}" alt="Snow" style="width:100%;max-width:200px">{{-- {{ $employee->avatar }} --}}
                     <div id="myModal" class="modal">
                         <span class="close">&times;</span>
                         <img class="modal-content" id="img01">

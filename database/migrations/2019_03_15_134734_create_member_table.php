@@ -19,6 +19,7 @@ class CreateMemberTable extends Migration
             $table->string('nic');	
             $table->string('mbr_pic');
             $table->string('email');
+            $table->string('contact');
             $table->date('birthday');
             $table->string('address');
             $table->timestamps();

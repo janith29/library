@@ -16,7 +16,7 @@ class CreateBookFineCollectionTable extends Migration
         Schema::create('book_fine_collection', function (Blueprint $table) {
             $table->increments('id');
             $table->string('delayed_days');
-            $table->integer('fine_fee_id');
+            $table->string('fine_fee_id');
             $table->string('book_issued_id');
             $table->string('find_fee');
             $table->timestamps();

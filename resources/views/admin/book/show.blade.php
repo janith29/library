@@ -1,14 +1,26 @@
 @extends('admin.layouts.admin')
-@section('title', "Services Management")
+@section('title', "Book Management")
 
 @section('content')
     <div class="row">
         <table class="table table-striped table-hover">
             <tbody>
             <tr>
-                <th>Services Image</th>
+                    @php
+    
+                    use Illuminate\Support\Facades\DB;
+                    $email=auth()->user()->email;
+                    $IDs = DB::table('book_author')->where('id', $books->authorid)->get();
+                    $author_name = "pandding";
+                        foreach($IDs as $ID)
+                        {
+                            $author_name=$ID->name;
+                            
+                        }
+                    @endphp
+                <th>Book Image</th>
                 <td>
-                        <img  id="myImg" onclick="displayIMG(this.id)" height="200" width="200" src="\image\service\item\{{$Services->pic}}" alt={{ $Services->name }}>{{-- {{ $employee->avatar }} --}}
+                        <img  id="myImg" onclick="displayIMG(this.id)" height="200" width="200" src="\image\book\pic\{{$books->book_pic}}" alt={{ $books->name }}>{{-- {{ $employee->avatar }} --}}
                         <div id="myModal" class="modal">
                                 <span class="close">&times;</span>
                             <img class="modal-content" id="img01">
@@ -18,30 +30,35 @@
             </tr>
 
             <tr>
-                <th>Services name</th>
-                <td>{{ $Services->serviceName }}</td>
+                <th>Book name</th>
+                <td>{{ $books->bookname }}</td>
             </tr>
+
             <tr>
-                    <th>Services DID</th>
-                    <td>{{ $Services->Did }}</td>
+                    <th>Book author name</th>
+                    <td>{{ $author_name }}</td>
                 </tr>
             <tr>
-                <th>Services type</th>
+                    <th>Book quantity</th>
+                    <td>{{ $books->book_quantity_full }}</td>
+                </tr>
+            <tr>
+                <th>Available Book quantity</th>
                 <td>
-                        {{ $Services->type }}
+                        {{ $books->book_quantity_now }}
                     </a>
                 </td>
             </tr>
             <tr>
                 <th>Services description</th>
                 <td>
-                    {{ ($Services->description)}} 
+                    {{ ($books->book_published_year)}} 
                 </td>
             </tr>
             </tbody>
         </table>
-        <a href="{{ route('admin.services') }}" class="btn btn-danger">Store home</a>
-        <a class="btn btn-info" href="{{ route('admin.services.edit',[$Services->id]) }}">Edit</a>
+        <a href="{{ route('admin.book') }}" class="btn btn-danger">Book home</a>
+        <a class="btn btn-info" href="{{ route('admin.book.edit',[$books->id]) }}">Edit</a>
     </div>
     <script>
             // Get the modal
