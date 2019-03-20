@@ -107,9 +107,9 @@ class BookIssueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function return(Book_issue $Book_issue)
     {
-        //
+        return view('admin.book_issue.return',['books' => $Book_issue]);
     }
 
     /**

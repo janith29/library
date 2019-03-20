@@ -95,7 +95,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('book_issue/add','BookIssueController@create')->name('book_issue.add');
     Route::post('book_issue/addbook/addbook_issue', 'BookIssueController@store')->name('book_issue.addbook');
     Route::get('book_issue/{book}', 'BookIssueController@show')->name('book_issue.show');
-    Route::get('book_issue/edit/{book}', 'BookIssueController@edit')->name('book_issue.edit');
+    Route::get('book_issue/return/{book}', 'BookIssueController@return')->name('book_issue.return');
    
     Route::post('book_issue/addbook/book_issue_book', 'BookIssueController@book_issue_book')->name('book_issue.addbook');
     Route::post('book_issue/addbook/book_issue_add', 'BookIssueController@book_issue_add')->name('book_issue.addbook.book_issue_add');

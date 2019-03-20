@@ -39,23 +39,39 @@
                 <th>Actions</th>
             </tr>
             </thead>
+            <?php
+            use Illuminate\Support\Facades\DB;
+            use Carbon\Carbon;
+            ?>
             <tbody>
                <?php $__currentLoopData = $Book_issues; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Book_issue): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
+                            <?php
+                            $booksadd = DB::select('select * from book where id ='.$Book_issue->book_id);
+                            $members = DB::select('select * from member where id ='.$Book_issue->member_id);
+                            $bookname="panding";
+                            $mytime = Carbon::now();
+                            foreach($booksadd as $bookadd)
+                            {
+                                $bookname=$bookadd->bookname;
+                            }
+                            $membername="panding";
+                            foreach($members as $member)
+                            {
+                                $membername=$member->name;
+                            }
+                            ?>
                         <td><?php echo e($Book_issue->id); ?></td>
-                        <td><?php echo e($Book_issue->member_id); ?></td>
-                        <td><?php echo e($Book_issue->book_id); ?></td>
+                        <td><?php echo e($membername); ?></td>
+                        <td><?php echo e($bookname); ?></td>
                         <td><?php echo e($Book_issue->getdate); ?></td>
                         <td><?php echo e($Book_issue->book_issued_day); ?></td>
                         <td>
-                                <a class="btn btn-xs btn-primary" href="<?php echo e(route('admin.book.show',[$Book_issue->id])); ?>">
+                                <a class="btn btn-xs btn-primary" href="<?php echo e(route('admin.book_issue.show',[$Book_issue->id])); ?>">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-info" href="<?php echo e(route('admin.book.edit',[$Book_issue->id])); ?>">
-                                        <i class="fas fa-pencil"></i>
-                                    </a>
-                                    <a class="btn btn-xs btn-danger" href="<?php echo e(route('admin.book.delete',[$Book_issue->id])); ?>">
-                                        <i class="fa fa-trash"></i>
+                                    <a class="btn btn-xs btn-info" href="<?php echo e(route('admin.book_issue.return',[$Book_issue->id])); ?>">
+                                        <i class="fas fa-undo"></i>
                                     </a>
                         </td>
                     </tr>

@@ -40,23 +40,39 @@
                 <th>Actions</th>
             </tr>
             </thead>
+            @php
+            use Illuminate\Support\Facades\DB;
+            use Carbon\Carbon;
+            @endphp
             <tbody>
                @foreach ($Book_issues as $Book_issue)
                     <tr>
+                            @php
+                            $booksadd = DB::select('select * from book where id ='.$Book_issue->book_id);
+                            $members = DB::select('select * from member where id ='.$Book_issue->member_id);
+                            $bookname="panding";
+                            $mytime = Carbon::now();
+                            foreach($booksadd as $bookadd)
+                            {
+                                $bookname=$bookadd->bookname;
+                            }
+                            $membername="panding";
+                            foreach($members as $member)
+                            {
+                                $membername=$member->name;
+                            }
+                            @endphp
                         <td>{{ $Book_issue->id }}</td>
-                        <td>{{ $Book_issue->member_id }}</td>
-                        <td>{{ $Book_issue->book_id }}</td>
+                        <td>{{  $membername }}</td>
+                        <td>{{  $bookname }}</td>
                         <td>{{ $Book_issue->getdate }}</td>
                         <td>{{ $Book_issue->book_issued_day }}</td>
                         <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.book.show',[$Book_issue->id]) }}">
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.book_issue.show',[$Book_issue->id]) }}">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-info" href="{{  route('admin.book.edit',[$Book_issue->id]) }}">
-                                        <i class="fas fa-pencil"></i>
-                                    </a>
-                                    <a class="btn btn-xs btn-danger" href="{{ route('admin.book.delete',[$Book_issue->id]) }}">
-                                        <i class="fa fa-trash"></i>
+                                    <a class="btn btn-xs btn-info" href="{{  route('admin.book_issue.return',[$Book_issue->id]) }}">
+                                        <i class="fas fa-undo"></i>
                                     </a>
                         </td>
                     </tr>
