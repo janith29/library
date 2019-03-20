@@ -16,7 +16,8 @@ Install Node.js using detailed installation instructions here
 
 Clone repository
 
-    $ git clone https://github.com/leoshak/limbcare.git
+    $ git clone https://github.com/janith29/library.git
+    
 
 Change into the working directory
 
