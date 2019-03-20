@@ -5,32 +5,32 @@ Install Node.js using detailed installation instructions here
 
 Clone repository
 
-    $ git clone https://github.com/janith29/library.git
+     git clone https://github.com/janith29/library.git
     
 first do:
-`composer update`
 
-`php artisan key:generate`
+1. `composer update`
+
+2. `php artisan key:generate`
 
 
 
 Before run below command TRY:
 
-    `php artisan config:cache`
+3.`php artisan config:cache`
 
-or
-    `php artisan config:clear`
 
 then:
+Before
+change your .env file 
 
-    $ php artisan migrate --seed
+4. php artisan migrate --seed
 
 If you get an error like a PDOException try editing your .env file and change DB_HOST=127.0.0.1 to DB_HOST=localhost or DB_HOST=mysql (for docker-compose environment).
 Run
 
 To start the PHP built-in server
-
-   `php artisan serve `
+5. `php artisan serve `
 
 
 Now you can browse the site at http://localhost:8000
