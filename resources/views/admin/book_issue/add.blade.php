@@ -53,7 +53,7 @@
         
         <input type="hidden" id="memberID" name="memberID" value="{{$id}}">
         <input type="hidden" id="bookID" name="bookID" value="{{$Books}}">
-        <input type="hidden" id="getdate" name="getdate" value="{{$mytime->toDateString()}}">
+        <input type="hidden" id="getdate" name="getdate" value="{{$$mytime->toDateString()}}">
        
         <a href="{{ route('admin.book_issue') }}" class="btn btn-danger">Cancel</a>
         <button type="submit" class="btn btn-primary">Add</button>

@@ -95,11 +95,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('book_issue/add','BookIssueController@create')->name('book_issue.add');
     Route::post('book_issue/addbook/addbook_issue', 'BookIssueController@store')->name('book_issue.addbook');
     Route::get('book_issue/{book}', 'BookIssueController@show')->name('book_issue.show');
-    Route::get('book_issue/return/{book}', 'BookIssueController@return')->name('book_issue.return');
+    Route::get('book_issue/return/{Book_issue}', 'BookIssueController@return')->name('book_issue.return');
    
     Route::post('book_issue/addbook/book_issue_book', 'BookIssueController@book_issue_book')->name('book_issue.addbook');
     Route::post('book_issue/addbook/book_issue_add', 'BookIssueController@book_issue_add')->name('book_issue.addbook.book_issue_add');
-    Route::post('book_issue/edit/updatebook','BookIssueController@update');
+    Route::post('book_issue/return/returnbook','BookIssueController@returnbook');
 
     Route::get('book_issue/delete/{book}', 'BookIssueController@destroy')->name('book_issue.delete');
     Route::post('book_issue/delete/deletebook','BookIssueController@sedelete');
@@ -109,6 +109,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     //fine collection
     Route::get('fine_collection','FineCollectionController@index')->name('fine_collection');
+    
+    Route::get('fine_fee','FineCollectionController@fine_fee')->name('fine_fee'); 
+    Route::get('fine_fee/add','FineCollectionController@fine_feeadd')->name('fine_fee.add');
+    
+
     
     //Author addauthor
     Route::get('author','AuthorController@index')->name('author');

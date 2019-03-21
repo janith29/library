@@ -11,6 +11,10 @@
         <div class="form-group">
             <label for="book_category_name">Book category Name *</label>
             <input type="text" class="form-control" name="book_category_name" id="book_category_name" placeholder="Book category Name" value="<?php echo e(old('book_category_name')); ?>">
+        </div> 
+        <div class="form-group">
+            <label for="fine_fee">Fine fee *</label>
+            <input type="text" class="form-control" name="fine_fee" id="fine_fee" placeholder="Fine fee" value="<?php echo e(old('fine_fee')); ?>">
         </div>
        
         <a href="<?php echo e(route('admin.book')); ?>" class="btn btn-danger">Cancel</a>

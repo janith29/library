@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-<form action="updatebook" method="post">
+<form action="returnbook" method="post">
     <?php echo e(csrf_field()); ?>
 
     <?php if(!$errors->isEmpty()): ?>
@@ -11,21 +11,43 @@
 
         </div>
     <?php endif; ?>
-    
+    <?php
+    use Illuminate\Support\Facades\DB;
+    use Carbon\Carbon;
+    $booksadd = DB::select('select * from book where id ='.$books->member_id);
+    $members = DB::select('select * from member where id ='.$books->book_id);
+    $bookname="panding";
+    $mytime = Carbon::now();
+    foreach($booksadd as $bookadd)
+    {
+        $bookname=$bookadd->bookname;
+    }
+    $membername="panding";
+    foreach($members as $member)
+    {
+        $membername=$member->name;
+    }
+    ?>
     <?php if(Session::has('message')): ?>
         <div class="alert alert-danger"><?php echo e(Session::get('message')); ?></div>
     <?php endif; ?>
+    <div class="form-group">
+            <label for="book_name">Book Name *</label>
+            <h3><?php echo e($bookname); ?></h3>
+        </div>
         <div class="form-group">
-                <label for="name">Book name *</label>
-                <input type="text" class="form-control" name="name" id="name" value="<?php echo e($books->bookname); ?>">
-              </div>
+            <label for="book_name">Member Name *</label>
+            <h3><?php echo e($membername); ?></h3>
+        </div>
         <div class="form-group">
-            <label for="book_image">Book picture *</label>
-            <input type="file" class="form-control" name="book_image" id="book_image" >
+            <label for="book_year">Book return date *</label>
+        <h3><?php echo e($mytime->toDateString()); ?></h3>
         </div>
         <input type="hidden" id="id" name="id" value="<?php echo e($books->id); ?>">
-        <a href="<?php echo e(route('admin.book')); ?>" class="btn btn-danger">Cancel</a>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <input type="hidden" id="return" name="return" value="<?php echo e($mytime->toDateString()); ?>">
+        
+        <a href="<?php echo e(route('admin.book_issue')); ?>" class="btn btn-danger">Cancel</a>
+        <button type="submit" class="btn btn-primary">Return</button>
       </form>
     </div>
 <?php $__env->stopSection(); ?>

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Models\Book_category;
 use App\Models\Book;
 use App\Models\Book_cat;
+use App\Models\Fine_fee;
 
 use Illuminate\Support\Facades\DB;
 class BookController extends Controller
@@ -40,10 +41,19 @@ class BookController extends Controller
     {
         return view('admin.book.addbook_category');
     }
-    public function store_book_category(Request $request,Book_category $Bookc)
+    public function store_book_category(Request $request,Book_category $Bookc,Fine_fee $Fine_fee)
     {   
         $Bookc->book_category_name=$request->get('book_category_name');
         $Bookc->save();
+        $bookVals = DB::select('select * from book_category ORDER BY id DESC LIMIT 1');
+        $lastid = 0;
+        foreach($bookVals as $bookVal)
+        {
+            $lastid=$bookVal->id;
+        }
+        $Fine_fee->bookcatid=$lastid;
+        $Fine_fee->fee_per_day=$request->get('fine_fee');
+        $Fine_fee->save();
         return view('admin.book.success');
     }
 

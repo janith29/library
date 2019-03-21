@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-<form action="updatebook" method="post">
+<form action="returnbook" method="post">
     {{ csrf_field() }}
     @if (!$errors->isEmpty())
         <div class="alert alert-danger" role="alert">
@@ -14,8 +14,8 @@
     @php
     use Illuminate\Support\Facades\DB;
     use Carbon\Carbon;
-    $booksadd = DB::select('select * from book where id ='.$books);
-    $members = DB::select('select * from member where id ='.$id);
+    $booksadd = DB::select('select * from book where id ='.$books->member_id);
+    $members = DB::select('select * from member where id ='.$books->book_id);
     $bookname="panding";
     $mytime = Carbon::now();
     foreach($booksadd as $bookadd)
@@ -40,12 +40,14 @@
             <h3>{{$membername}}</h3>
         </div>
         <div class="form-group">
-            <label for="book_image">Book picture *</label>
-            <input type="file" class="form-control" name="book_image" id="book_image" >
+            <label for="book_year">Book return date *</label>
+        <h3>{{$mytime->toDateString()}}</h3>
         </div>
         <input type="hidden" id="id" name="id" value="{{ $books->id }}">
-        <a href="{{ route('admin.book') }}" class="btn btn-danger">Cancel</a>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <input type="hidden" id="return" name="return" value="{{ $mytime->toDateString() }}">
+        
+        <a href="{{ route('admin.book_issue') }}" class="btn btn-danger">Cancel</a>
+        <button type="submit" class="btn btn-primary">Return</button>
       </form>
     </div>
 @endsection

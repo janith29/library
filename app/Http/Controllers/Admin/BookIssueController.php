@@ -112,6 +112,28 @@ class BookIssueController extends Controller
         return view('admin.book_issue.return',['books' => $Book_issue]);
     }
 
+    public function returnbook(Request $request)
+    {
+        $now=$request->return;
+
+        $book_issues = DB::select('select * from book_issue where id ='.$request->id);
+        $book_issued_day="pandiing";
+        foreach($book_issues as $book_issue)
+        {
+            $book_issued_day=$book_issue->book_issued_day;
+        }
+
+        $book_issued_day = Carbon::parse($book_issued_day);
+        $end = Carbon::parse($now);
+        
+        $length = $book_issued_day->diffInDays($end);
+        $diff=date_diff($end,$book_issued_day);
+        $length = $diff->format("%R%a");
+        
+        return $length;
+    }
+
+    
     /**
      * Update the specified resource in storage.
      *
