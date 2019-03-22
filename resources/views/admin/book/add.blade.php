@@ -50,6 +50,10 @@
             <input type="file" class="form-control" name="book_image" id="book_image" >
         </div>
         <div class="form-group">
+            <label for="fine_fee">Fine fee(per day) *</label>
+            <input type="text" class="form-control" name="fine_fee" id="fine_fee" placeholder="Fine fee" value="{{ old('fine_fee') }}">
+        </div>
+        <div class="form-group">
             <label for="book_categorys">Book categorys *</label><br>
             @foreach($book_categorys as $book_category)
             <input type="checkbox"name="ids[]" value={{$book_category->id}} > <span style="font-size: 100%; " class="label label-primary">{{$book_category->book_category_name}}</span>

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Models\Book_category;
 use App\Models\Book;
 use App\Models\Book_cat;
+use App\Models\Book_fine_collection;
 use App\Models\Fine_fee;
 
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,9 @@ class FineCollectionController extends Controller
      */
     public function index()
     {
-        return view('admin.fine_collection.index');
+        $Book_fine_collection = Book_fine_collection::all();
+      
+        return view('admin.fine_collection.index', compact('Book_fine_collection'));
     }
 
     /**
@@ -46,9 +49,14 @@ class FineCollectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Book_fine_collection $Book_fine_collection)
     {
-        //
+        $Book_fine_collection->delayed_days=$request->get('delayed_days');
+        $Book_fine_collection->fine_fee_id=$request->get('fine_fee_id');
+        $Book_fine_collection->book_issued_id=$request->get('book_issued_id');
+        $Book_fine_collection->find_fee=$request->get('find_fee');
+        $Book_fine_collection->save();
+        return view('admin.fine_collection.success');
     }
 
     /**
@@ -68,9 +76,9 @@ class FineCollectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Fine_fee $fine)
     {
-        //
+        return view('admin.fine_collection.edit',['fee' => $fine]);
     }
 
     /**
@@ -80,9 +88,26 @@ class FineCollectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Fine_fee $fine)
     {
-        //
+        $Books = DB::select('select * from fine_fee where id ='.$request['id']);
+        foreach($Books as $Book)
+          {
+            $fee_per_day=$Book->fee_per_day;
+            if(($fee_per_day==$request['fee_per_day']) ) 
+            {
+                $message = 'Nothing to update';
+              return redirect()->intended(route('admin.fine_fee.edit',[$request->id]))->with('message', $message);
+              }
+              else
+              {
+            DB::table('fine_fee')
+                ->where('id', $request['id'])
+                ->update(['fee_per_day' => $request['fee_per_day']]);
+            
+                return view('admin.fine_collection.success');
+          }
+        }
     }
 
     /**

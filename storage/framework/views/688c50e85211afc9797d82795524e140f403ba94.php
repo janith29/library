@@ -50,6 +50,10 @@
             <input type="file" class="form-control" name="book_image" id="book_image" >
         </div>
         <div class="form-group">
+            <label for="fine_fee">Fine fee(per day) *</label>
+            <input type="text" class="form-control" name="fine_fee" id="fine_fee" placeholder="Fine fee" value="<?php echo e(old('fine_fee')); ?>">
+        </div>
+        <div class="form-group">
             <label for="book_categorys">Book categorys *</label><br>
             <?php $__currentLoopData = $book_categorys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <input type="checkbox"name="ids[]" value=<?php echo e($book_category->id); ?> > <span style="font-size: 100%; " class="label label-primary"><?php echo e($book_category->book_category_name); ?></span>

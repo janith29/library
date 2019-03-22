@@ -33,6 +33,7 @@
                     <tr>
                         <th>Book ID</th>
                         <th>Book name</th>
+                        <th>Book available</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -41,19 +42,25 @@
                         <tr> 
                             <td><?php echo e($Book->id); ?></td>
                             <td><?php echo e($Book->bookname); ?></td> 
+                            <td><?php echo e($Book->book_quantity_now); ?></td> 
                             <td>
-                                    <form action="book_issue_add" method="post" class="form-inline">
-                                            <?php echo e(csrf_field()); ?>
+                                <?php if(($Book->book_quantity_now)<=0): ?>
+                                    Book is not available
+                                <?php else: ?>
+                                <form action="book_issue_add" method="post" class="form-inline">
+                                        <?php echo e(csrf_field()); ?>
 
-                                <input type="hidden" id="memberID" name="memberID" value="<?php echo e($id); ?>">
-                                <input type="hidden" id="bookID" name="bookID" value="<?php echo e($Book->id); ?>">
+                            <input type="hidden" id="memberID" name="memberID" value="<?php echo e($id); ?>">
+                            <input type="hidden" id="bookID" name="bookID" value="<?php echo e($Book->id); ?>">
 
-                                <div class="form-group">
-                                        <button class="btn btn-xs btn-info" style="margin-top: -10px;" type="submit"><i class="fa fa-plus"></i></button>
-                                    </div>
-                                   
-                                </form>
-                                
+                            <div class="form-group">
+                                    <button class="btn btn-xs btn-info" style="margin-top: -10px;" type="submit"><i class="fa fa-plus"></i></button>
+                                </div>
+                               
+                            </form>
+                            
+                                <?php endif; ?>
+                                    
                             </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

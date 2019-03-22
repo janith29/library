@@ -28,7 +28,7 @@
             <thead> 
             <tr>
                 <th>ID</th>
-                <th>Book name</th>
+                <th>Book category name</th>
                 <th>Find fee per day</th>
                 <th>Actions</th>
             </tr>
@@ -52,13 +52,10 @@
                             ?>
                         <td><?php echo e($Fine_fe->id); ?></td>
                         <td><?php echo e($bookname); ?></td>
-                        <td><?php echo e($Fine_fe->fee_per_day); ?></td>
+                        <td>Rs.<?php echo e($Fine_fe->fee_per_day); ?>.00</td>
                         <td>
-                                <a class="btn btn-xs btn-primary" href="<?php echo e(route('admin.book_issue.show',[$Fine_fe->id])); ?>">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a class="btn btn-xs btn-info" href="<?php echo e(route('admin.book_issue.return',[$Fine_fe->id])); ?>">
-                                        <i class="fas fa-undo"></i>
+                                    <a class="btn btn-xs btn-info" href="<?php echo e(route('admin.fine_fee.edit',[$Fine_fe->id])); ?>">
+                                        <i class="fas fa-pencil-alt"></i>
                                     </a>
                         </td>
                     </tr>

@@ -41,19 +41,11 @@ class BookController extends Controller
     {
         return view('admin.book.addbook_category');
     }
-    public function store_book_category(Request $request,Book_category $Bookc,Fine_fee $Fine_fee)
+    public function store_book_category(Request $request,Book_category $Bookc)
     {   
         $Bookc->book_category_name=$request->get('book_category_name');
         $Bookc->save();
-        $bookVals = DB::select('select * from book_category ORDER BY id DESC LIMIT 1');
-        $lastid = 0;
-        foreach($bookVals as $bookVal)
-        {
-            $lastid=$bookVal->id;
-        }
-        $Fine_fee->bookcatid=$lastid;
-        $Fine_fee->fee_per_day=$request->get('fine_fee');
-        $Fine_fee->save();
+        
         return view('admin.book.success');
     }
 
@@ -63,7 +55,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Book $Book, Book_cat $Book_cat)
+    public function store(Request $request,Book $Book, Book_cat $Book_cat,Fine_fee $Fine_fee)
     {
         $pic_name="panding";
         $file=$request ->file('book_image');
@@ -86,12 +78,18 @@ class BookController extends Controller
         $Book->book_pic=$pic_name;
         $Book->book_published_year=$request->get('book_year');
         $Book->save();
+
         $bookVals = DB::select('select * from book ORDER BY id DESC LIMIT 1');
         
         foreach($bookVals as $bookVal)
         {
             $lastid=$bookVal->id;
         }
+       
+        $Fine_fee->bookcatid=$lastid;
+        $Fine_fee->fee_per_day=$request->get('fine_fee');
+        $Fine_fee->save();
+
         $checkid =$request->input('ids') ;
        $IDcount=count($checkid);
        for($i=0; $i<$IDcount; $i++ )

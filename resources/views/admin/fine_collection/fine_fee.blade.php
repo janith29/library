@@ -54,13 +54,10 @@
                             @endphp
                         <td>{{ $Fine_fe->id }}</td>
                         <td>{{  $bookname }}</td>
-                        <td>{{ $Fine_fe->fee_per_day  }}</td>
+                        <td>Rs.{{ $Fine_fe->fee_per_day  }}.00</td>
                         <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.book_issue.show',[$Fine_fe->id]) }}">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a class="btn btn-xs btn-info" href="{{  route('admin.book_issue.return',[$Fine_fe->id]) }}">
-                                        <i class="fas fa-undo"></i>
+                                    <a class="btn btn-xs btn-info" href="{{  route('admin.fine_fee.edit',[$Fine_fe->id]) }}">
+                                        <i class="fas fa-pencil-alt"></i>
                                     </a>
                         </td>
                     </tr>

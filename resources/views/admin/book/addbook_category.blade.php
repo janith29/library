@@ -13,10 +13,7 @@
             <label for="book_category_name">Book category Name *</label>
             <input type="text" class="form-control" name="book_category_name" id="book_category_name" placeholder="Book category Name" value="{{ old('book_category_name') }}">
         </div> 
-        <div class="form-group">
-            <label for="fine_fee">Fine fee(per day) *</label>
-            <input type="text" class="form-control" name="fine_fee" id="fine_fee" placeholder="Fine fee" value="{{ old('fine_fee') }}">
-        </div>
+       
        
         <a href="{{ route('admin.book') }}" class="btn btn-danger">Cancel</a>
         <a href="{{ route('admin.book_category.add') }}" class="btn btn-primary">Clear</a>

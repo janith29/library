@@ -14,8 +14,8 @@
     @php
     use Illuminate\Support\Facades\DB;
     use Carbon\Carbon;
-    $booksadd = DB::select('select * from book where id ='.$books->member_id);
-    $members = DB::select('select * from member where id ='.$books->book_id);
+    $booksadd = DB::select('select * from book where id ='.$books->book_id);
+    $members = DB::select('select * from member where id ='.$books->member_id);
     $bookname="panding";
     $mytime = Carbon::now();
     foreach($booksadd as $bookadd)

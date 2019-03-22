@@ -50,6 +50,7 @@
                 <label for="mer_pic">Member Picture</label>
                 <input type="file" class="form-control" name="mer_pic" id="mer_pic" >
             </div>
+            
             <button type="reset" class="btn btn-primary">Clear</button>
             <button type="submit" class="btn btn-primary">Add</button>
 

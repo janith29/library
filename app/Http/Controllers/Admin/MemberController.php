@@ -50,6 +50,7 @@ class MemberController extends Controller
         $file=$request ->file('mer_pic');
 
         $memberVals = DB::select('select * from member ORDER BY id DESC LIMIT 1');
+        
         $type=$file->guessExtension();
         $lastid = 0;
         foreach($memberVals as $memberVal)

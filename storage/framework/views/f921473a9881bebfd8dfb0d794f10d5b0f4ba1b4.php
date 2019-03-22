@@ -1,8 +1,6 @@
-@extends('admin.layouts.admin')
+<?php $__env->startSection('title', "Book fine collection Management"); ?>
 
-@section('title', "Book fine collection Management")
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div id="myModal" class="modal fade in" style="display: block; margin-top: 160px; margin-left: 100px;">
                 <div class="modal-dialog modal-confirm">
@@ -24,7 +22,8 @@
                 </div>
             </div>
         <div class="pull-right">
-            {{-- {{ $users->links() }} --}}
+            
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

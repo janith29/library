@@ -47,13 +47,13 @@
             <h4> {{$mytime->toDateString()}}</h4>
         </div>
         <div class="form-group">
-            <label for="book_issued_day">Book issued day *</label>
+            <label for="book_issued_day">Due day of the borrowed book *</label>
             <input type="date" class="form-control" name="book_issued_day" id="book_issued_day" >
         </div>
         
         <input type="hidden" id="memberID" name="memberID" value="{{$id}}">
         <input type="hidden" id="bookID" name="bookID" value="{{$Books}}">
-        <input type="hidden" id="getdate" name="getdate" value="{{$$mytime->toDateString()}}">
+        <input type="hidden" id="getdate" name="getdate" value="{{$mytime->toDateString()}}">
        
         <a href="{{ route('admin.book_issue') }}" class="btn btn-danger">Cancel</a>
         <button type="submit" class="btn btn-primary">Add</button>

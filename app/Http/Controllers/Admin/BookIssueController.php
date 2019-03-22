@@ -65,13 +65,25 @@ class BookIssueController extends Controller
     }
     public function store(Book_issue $Book_issue,Request $request)
     {
-        
         $Book_issue->book_id=$request->get('bookID');
         $Book_issue->member_id=$request->get('memberID');
         $Book_issue->getdate=$request->get('getdate');
         $Book_issue->book_issued_day=$request->get('book_issued_day');
         $Book_issue->save();
+
+        $Books = DB::select('select * from book where id ='.$request->get('bookID'));
+        $Booknow=null;
+        foreach($Books as $Book)
+        {
+            $Booknow=$Book->book_quantity_now;
+        }
+        $Booknow=$Booknow-1;
+        DB::table('book')
+           ->where('id', $request->get('bookID'))
+           ->update(['book_quantity_now' => $Booknow]);
+
         return view('admin.book_issue.success');
+
     }
     public function book_issue_book(Request $request)
     {
@@ -88,7 +100,9 @@ class BookIssueController extends Controller
     {
         $id=$request->get('memberID');
         $Books =$request->get('bookID');
+
         return view('admin.book_issue.add', compact('Books','id'));
+
     }
     /**
      * Display the specified resource.
@@ -130,7 +144,27 @@ class BookIssueController extends Controller
         $diff=date_diff($end,$book_issued_day);
         $length = $diff->format("%R%a");
         
-        return $length;
+        
+        if($length<0)
+        {
+            $length= ($length*-1);
+             DB::table('book_issue')
+                ->where('id', $request['id'])
+                ->update(['book_returned_day' => $end]);
+            
+                 $length;
+                 $idBookI=$request['id'];
+                return view('admin.fine_collection.add',compact('length','idBookI'));
+
+        }
+        else
+        {
+            DB::table('book_issue')
+                ->where('id', $request['id'])
+                ->update(['book_returned_day' => $end]);
+            
+                return view('admin.book_issue.success');
+        }
     }
 
     

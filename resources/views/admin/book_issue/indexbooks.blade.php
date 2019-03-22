@@ -33,6 +33,7 @@
                     <tr>
                         <th>Book ID</th>
                         <th>Book name</th>
+                        <th>Book available</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -40,20 +41,25 @@
                     @foreach($Books as $Book)
                         <tr> 
                             <td>{{ $Book->id }}</td>
-                            <td>{{ $Book->bookname
-                             }}</td> 
+                            <td>{{ $Book->bookname}}</td> 
+                            <td>{{ $Book->book_quantity_now}}</td> 
                             <td>
-                                    <form action="book_issue_add" method="post" class="form-inline">
-                                            {{ csrf_field() }}
-                                <input type="hidden" id="memberID" name="memberID" value="{{$id}}">
-                                <input type="hidden" id="bookID" name="bookID" value="{{$Book->id}}">
+                                @if (($Book->book_quantity_now)<=0)
+                                    Book is not available
+                                @else
+                                <form action="book_issue_add" method="post" class="form-inline">
+                                        {{ csrf_field() }}
+                            <input type="hidden" id="memberID" name="memberID" value="{{$id}}">
+                            <input type="hidden" id="bookID" name="bookID" value="{{$Book->id}}">
 
-                                <div class="form-group">
-                                        <button class="btn btn-xs btn-info" style="margin-top: -10px;" type="submit"><i class="fa fa-plus"></i></button>
-                                    </div>
-                                   
-                                </form>
-                                
+                            <div class="form-group">
+                                    <button class="btn btn-xs btn-info" style="margin-top: -10px;" type="submit"><i class="fa fa-plus"></i></button>
+                                </div>
+                               
+                            </form>
+                            
+                                @endif
+                                    
                             </td>
                         </tr>
                         @endforeach

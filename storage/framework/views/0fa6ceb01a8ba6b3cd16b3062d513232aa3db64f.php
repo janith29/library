@@ -47,7 +47,7 @@
             <h4> <?php echo e($mytime->toDateString()); ?></h4>
         </div>
         <div class="form-group">
-            <label for="book_issued_day">Book issued day *</label>
+            <label for="book_issued_day">Due day of the borrowed book *</label>
             <input type="date" class="form-control" name="book_issued_day" id="book_issued_day" >
         </div>
         

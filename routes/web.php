@@ -109,10 +109,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     //fine collection
     Route::get('fine_collection','FineCollectionController@index')->name('fine_collection');
+    Route::get('fine_fee/{fine}', 'FineCollectionController@edit')->name('fine_fee.edit');
     
     Route::get('fine_fee','FineCollectionController@fine_fee')->name('fine_fee'); 
     Route::get('fine_fee/add','FineCollectionController@fine_feeadd')->name('fine_fee.add');
-    
+    Route::post('book_issue/return/book_fine_collection','FineCollectionController@store');
+    Route::post('fine_fee/fine_feeupdate','FineCollectionController@update');
+
 
     
     //Author addauthor
